@@ -28,7 +28,7 @@ public interface TripDataRepository extends CrudRepository<TripData, Long> {
     @Query("select p from TripData p where p.t_date = :date")
     List<TripData> findByDate(@Param("date") Date date);
 
-    @Query("select p from TripData p where p.t_date = :date and p.t_class = :t_class and p.s_location = :start and p.e_location = :ends")
-    List<TripData> findByQuery(@Param("date") Date date,@Param("t_class") int t_class,@Param("start") String start,@Param("ends") String ends);
+    @Query("select p from TripData p where (p.t_date = :t_date) and (p.t_class = :t_class and (p.s_location = :s_location and p.e_location = :e_location))")
+    List<TripData> findByQuery(@Param("t_date") Date date,@Param("t_class") int t_class,@Param("s_location") String start,@Param("e_location") String ends);
 
 }

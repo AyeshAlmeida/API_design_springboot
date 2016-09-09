@@ -20,6 +20,7 @@ public class TripData {
     private int t_class;
     private String s_location;
     private String e_location;
+    private String medium;
     private int no_of_passengers;
 
     public long gett_id(){
@@ -50,7 +51,10 @@ public class TripData {
     }
     public void sete_loc(String e){
         this.e_location=e;
-    }public int getPassengers(){
+    }
+    public String getMedium(){return medium;}
+    public void setMedium(String e){this.medium = e;}
+    public int getPassengers(){
         return no_of_passengers;
     }
     public void setPassengers(int t){

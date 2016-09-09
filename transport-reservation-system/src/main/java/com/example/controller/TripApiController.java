@@ -42,6 +42,7 @@ public class TripApiController {
         td.sett_class(trip.gett_class());
         td.sets_loc(trip.gets_loc());
         td.sete_loc(trip.gete_loc());
+        td.setMedium(trip.getMedium());
         td.setPassengers(trip.getPassengers());
         tdrep.save(td);
         return trip;
@@ -57,6 +58,7 @@ public class TripApiController {
         td.sett_class(trip.gett_class());
         td.sets_loc(trip.gets_loc());
         td.sete_loc(trip.gete_loc());
+        td.setMedium(trip.getMedium());
         td.setPassengers(trip.getPassengers());
         tdrep.save(td);
         return trip;
@@ -78,6 +80,7 @@ public class TripApiController {
         trip.sett_class(td.gett_class());
         trip.sets_loc(td.gets_loc());
         trip.sete_loc(td.gete_loc());
+        trip.setMedium(td.getMedium());
         trip.setPassengers(td.getPassengers());
         return trip;
     }
@@ -125,7 +128,7 @@ public class TripApiController {
     @Transactional(readOnly = true)
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public List<Trip> getTripByQuery(@RequestParam("t_date") String t_date, @RequestParam("t_class") int t_class, @RequestParam("s_location") String start, @RequestParam("e_location") String ends){
+    public List<Trip> getTripByQuery(@RequestParam(value="t_date",required = true) String t_date , @RequestParam(value="t_class",required = false) int t_class, @RequestParam(value = "s_location",required = true) String start, @RequestParam(value = "e_location",required = true) String ends){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date;
         try{
