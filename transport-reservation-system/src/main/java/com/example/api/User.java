@@ -15,7 +15,7 @@ public class User {
     public long getu_id(){
         return u_id;
     }
-    public void setu_id(int s){
+    public void setu_id(long s){
         this.u_id = s;
     }
     public String getu_name(){
