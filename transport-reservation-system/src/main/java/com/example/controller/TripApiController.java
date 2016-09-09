@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
  */
 @Controller
 @Component
-@RequestMapping(path="/rtw")
+@RequestMapping(path="/rtw/trip_details")
 public class TripApiController {
 
     private final TripDataRepository tdrep;
